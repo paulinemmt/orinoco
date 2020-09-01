@@ -1,21 +1,30 @@
 // REQUETES HTTP
 //Envoie de la requête HTTP de type GET à l'API 
 //Récupération des données au format JSON
-// function getCamera(){
 var request = new XMLHttpRequest();
-request.onreadystatechange = function () {
-    if (this.readyState = XMLHttpRequest.DONE && this.status == 200){
-        var response = JSON.parse(this.responseText);
-        console.log(response);
-    }
-};
-request.open("GET","http://localhost:3000/api/cameras");
-request.send();
 console.log(request);
+request.open("GET","http://localhost:3000/api/cameras");
+request.responseType='json';
+request.send();
+
+
+//On récupère le tableau sous le nom d'une variable
+request.onload = function() {
+    var cameras = request.response;
+    console.log(cameras);
+
+
+//ALGORYTHME :
+// POUR CHAQUE élément du tableau 
+// ON CREE une card
+// et ON REMPLI les champs avec ce qui correspond
 
 
 //CREATION DES CARDS POUR AFFICHER LES DIFFERENTES CAMERAS
-function cardCreation (){
+// CREATION D'UNE BOUCLE
+for (let i = 0; i < cameras.length; i++){
+
+    function cardCreation (cameras){
 
 // Création de la div parente
 // Ajout des classes 
@@ -38,17 +47,21 @@ function cardCreation (){
 
 // Création des éléments enfants de la div CardBody
 // Ajout des classes
+// Ajout du texte
     let titleCamera = document.createElement("h3");
     divCardBody.appendChild(titleCamera);
     titleCamera.classList.add("card-title","title");
+    titleCamera.textContent = cameras[i].name;
 
     let descriptionCamera = document.createElement("p");
     divCardBody.appendChild(descriptionCamera);
     descriptionCamera.classList.add("description");
+    descriptionCamera.textContent = cameras[i].description;
 
     let priceCamera = document.createElement("p");
     divCardBody.appendChild(priceCamera);
     priceCamera.classList.add("price");
+    pricenCamera.textContent = cameras[i].price;
 
     // Lien vers la page produit
     let linkProduct = document.createElement("a");
@@ -60,10 +73,11 @@ function cardCreation (){
         // Ajout texte au bouton
         buttonBuy.textContent = "Voir";
 }
-
+}
+}
 
 // Appel de la fonction
-cardCreation();
+// cardCreation();
 
 // // BOUCLE CREER UNE CARD POUR CHAQUE I DU TABLEAU DE L API
-// for (let i = 0, i < cameraArray.lenghts, )
+// for (let i = 0, i < cameraArray.lenghts, )}
