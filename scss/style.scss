@@ -2,4 +2,16 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./base/base";
 @import "./base/typography";
+@import "./layouts/footer";
 @import "./layouts/header";
+
+// Ordre :
+// 
+// Utils :
+// Variable, fonction, mixins, placeholder
+// Vendors
+// base
+// components
+// layouts
+// pages
+// thème

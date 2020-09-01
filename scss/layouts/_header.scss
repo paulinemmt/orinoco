@@ -18,6 +18,8 @@ padding : 7rem 0rem;
     height:1.25rem;
 }
 .nav-item:hover{
-     border:0.1rem solid #424242; 
+     border:0.1rem solid $warning; 
 }
-
+.footer{
+    margin:auto;
+}
