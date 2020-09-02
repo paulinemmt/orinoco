@@ -9656,6 +9656,18 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 1.5rem;
 }
 
+.description {
+  font-size: 0.6rem;
+}
+
+.price {
+  font-size: 0.8rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+}
+
 .footer a:hover {
   text-decoration: none;
   color: #84afb5;
