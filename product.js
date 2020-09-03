@@ -1,7 +1,3 @@
-
-
-
-
 // On récupère les données de l'API
 const getCameras = async function () {
     try {
@@ -80,7 +76,7 @@ const getCameras = async function () {
         // Création du prix
             let priceCamera = document.createElement("p");
             divLinkPrice.appendChild(priceCamera);
-            priceCamera.classList.add("price-product", "my-2", "font-weight-bold");
+            priceCamera.classList.add("price-product", "font-weight-bold");
             priceCamera.textContent = choosenCamera.price + ' $';
     
     
