@@ -9647,7 +9647,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-.title {
+.title, .title-product {
   font-family: 'Permanent Marker', cursive;
 }
 
@@ -9666,6 +9666,18 @@ a.text-dark:hover, a.text-dark:focus {
 
 .card-title {
   font-size: 1.2rem;
+}
+
+.description-product {
+  font-size: 1rem;
+}
+
+.price-product {
+  font-size: 1.8rem;
+}
+
+.title-product {
+  font-size: 2rem;
 }
 
 .footer a:hover {
