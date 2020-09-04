@@ -24,7 +24,7 @@ const getCameras = async function () {
 
             let divParent = document.createElement("div");
             divParentParent.appendChild(divParent);
-            divParent.classList.add("card", "col", "m-auto", "pt-3");
+            divParent.classList.add("card", "col", "m-auto", "p-5");
 
             let imageCamera = document.createElement("img");
             divParent.appendChild(imageCamera);
@@ -83,13 +83,33 @@ const getCameras = async function () {
             // Lien vers la page produit
             let linkProduct = document.createElement("a");
             divLinkPrice.appendChild(linkProduct);
-            linkProduct.href="product.html";
                 // Création du bouton 
                 let buttonBuy = document.createElement("button");
                 linkProduct.appendChild(buttonBuy);
                 buttonBuy.classList.add("btn", "btn-warning", "block-right");
                 // Ajout texte au bouton
                 buttonBuy.textContent = "Ajouter au panier";
+
+                // Ajouter au panier :
+                // LORSQUE qu'on clique sur le bouton
+                // La camera et ses propriétés (l'objet) s'ajoute au panier
+                // Création d'un objet choosenProduct 
+    
+                //             class MyProduct  {
+    // constructor(lenses, _id, name, price, description, imageUrl){
+    //     this.lenses = lenses;
+    //     this._id = _id;
+    //     this.price = price;
+    //     this.description = description;
+    //     this.imageUrl = imageUrl;
+    // }
+
+// let cameras1 = new MyProduct ("rara", "dede", "toto", "didi", "dada");
+// console.log(cameras1);
+buttonBuy.addEventListener('click',fonction(){
+               let localStorage = localstorage.getItem(_id),
+               console.log(localStorage),
+})
 
 
         } else {
