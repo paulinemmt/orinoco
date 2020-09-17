@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="./frontend/scss/style.css">
     <meta type="description">
     <title>Orinoco - Orinocamera vintage</title>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap&&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap&&family=Open+Sans:wght@300&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-primary">
     <header>
-        <div class = "col bg-img shadow-sm d-flex flex-column align-items-center py-5">
+        <div class="col bg-img shadow-sm d-flex flex-column align-items-center py-5">
             <h1 class=" title p-3">ORINOCAMERA</h1>
             <h2 class="subtitle text-center">Achat de caméra vintage</h2>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-primary px-3">
             <a class="navbar-brand m-0" href="index.html">
-                <img class = "logo" src="images/logo.png" alt="Logo de l'entreprise Orinoco">
+                <img class="logo" src="frontend/images/logo.png" alt="Logo de l'entreprise Orinoco">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +33,8 @@
                         <a class="nav-link" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="basket.html"><img class = "basket pb-1" src="images/basket.png" alt="Panier"></a>
+                        <a class="nav-link" href="basket.html"><img class="basket pb-1" src="frontend/images/basket.png"
+                                alt="Panier"></a>
                     </li>
                 </ul>
             </div>
@@ -39,21 +42,93 @@
 
     </header>
 
-    <main class = "container" id = "main-basket">
-<!--Complèter avec le JS-->
+    <main class="container" id="main-basket">
+        <div class="d-flex flex-row justify-content-between px-1 my-2 text-warning">
+            <p class="my-1">Nom</p>
+            <p class="my-1">Lentille</p>
+            <p class="my-1">Prix</p>
+        </div>
+        <div id='basket-content'>
+            <!--Complèter chaque élément ajouté au panier avec le JS-->
+        </div>
+        <div>
+            <div id="total-price">
+                <!-- Prix total de la commande -->
+            </div>
+            <div id="button-clear-basket">
+                <!-- Bouton : vider le panier -->
+            </div>
+        </div>
+        <!--formulaire de commande-->
+
+
+        <form method="post" action=" http://localhost:3000/api/cameras">
+            <div class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col-md-6 mb-1">
+                        <label for="first-name" class="pt-3">Prénom</label>
+                        <input type="text" class="form-control " id="first-name" placeholder="Jeanne" required>
+                        <div class="valid-feedback">Valide</div>
+                    </div>
+                    <div class="col-md-6 mb-1">
+                        <label for="surname" class="pt-3">Nom</label>
+                        <input type="text" class="form-control " id="surname" placeholder="Dupont" required>
+                        <div class="valid-feedback">Valide</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-9 mb-1">
+                        <label for="adress" class="pt-3">Adresse</label>
+                        <input type="text" class="form-control " id="adress" placeholder="42 rue des Peuplier"
+                            required>
+                        <div class="valid-feedback">Valide</div>
+                    </div>
+                    <div class="col-md-3 mb-1">
+                        <label for="city" class="pt-3">Ville</label>
+                        <input type="text" class="form-control " id="city" placeholder="BRIVE-LA-GAILLARDE"
+                            required>
+                        <div class="valid-feedback">Valide</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col mb-1">
+                        <label for="email" class="pt-3">Email</label>
+                        <input type="email" class="form-control " id="email"
+                            placeholder="jeanne.dupont@mail.com" required>
+                        <div class="valid-feedback">Valide</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-check my-3">
+                        <input class="form-check-input is-invalid " type="checkbox" value="" id="invalidCheck3"
+                            aria-describedby="invalidCheck3Feedback" required>
+                        <label class="form-check-label" for="invalidCheck3">
+                            J'accepte les termes et conditions.
+                        </label>
+                        <div id="invalidCheck3Feedback" class="invalid-feedback">
+                            Vous devez accepter afin de finaliser la commande.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-warning my-3" type="submit">Valider la commande</button>
+            </div>
+        </form>
+
     </main>
 
     <footer class=" footer bg-img">
-                <div class="col d-flex justify-content-center p-0">
-                    <ul class="list-inline text-center my-3 ">
-                        <li class="list-inline-item"><a href="#mentions" alt="mentions légales">Mentions légales</a></li>
-                        <li class="list-inline-item"><a href="mailto:contact@orinoco.fr"
-                                alt="Email de contact">Contact</a></li>
-                    </ul>
-                </div>
+        <div class="col d-flex justify-content-center p-0">
+            <ul class="list-inline text-center my-3 ">
+                <li class="list-inline-item"><a href="#mentions" alt="mentions légales">Mentions légales</a></li>
+                <li class="list-inline-item"><a href="mailto:contact@orinoco.fr" alt="Email de contact">Contact</a></li>
+            </ul>
+        </div>
     </footer>
 
-    <script type="text/javascript" src='./index.js'></script>
+
+    <script type="text/javascript" src='./frontend/js/basket.js'></script>
 
 </body>
 

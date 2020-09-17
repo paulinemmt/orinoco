@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="./frontend/scss/style.css">
     <meta type="description">
     <title>Orinoco - Orinocamera vintage</title>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap&&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -40,7 +40,12 @@
     </header>
 
     <main class = "container" id = "main-confirm">
-<!--Complèter avec le JS-->
+<!--Complèter la partie ID avec le JS-->
+<div class= "border border-warning rounded shadow-lg my-5 py-2 text-center">
+    <p>Merci pour votre commande !</br><span class="title-product"> A bientôt chez Orinoco</span> !</p>
+    <p id="orderId"></p>
+    <a href="index.html" alt="Lien vers la page d'accueil du site"><button class="btn btn-warning" id="btn-validation">Retour à la page d'accueil</button></a>
+</div>
     </main>
 
     <footer class=" footer bg-img">
@@ -53,7 +58,7 @@
                 </div>
     </footer>
 
-    <script type="text/javascript" src='./index.js'></script>
+    <script type="text/javascript" src='./frontend/js/confirm.js'></script>
 
 </body>
 
