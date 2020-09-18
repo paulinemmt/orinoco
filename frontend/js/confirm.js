@@ -9,9 +9,9 @@ function addConfirmationText(){
     const confirmationPrice = document.createElement("p");
 
     messageConfirmation.innerHTML = "Merci pour votre commande n° " + confirmationId;
-    confirmationPrice.innerHTML = "Prix total :" + totalPrice + "€";
+    confirmationPrice.innerHTML = "Prix total :" + totalPrice + "$";
 
-    confirmation.appendChild(messageConfirmation);
-    confirmation.appendChild(confirmationPrice);
+    // confirmation.appendChild(messageConfirmation);
+    // confirmation.appendChild(confirmationPrice);
 }
 
