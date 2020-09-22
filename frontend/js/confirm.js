@@ -1,17 +1,25 @@
 // Confirmation de la commande
-
-
-function addConfirmationText(){
-    const confirmationId = localStorage.getItem("orderConfirmation");
-    const totalPrice = localStorage.getItem("totalPriceOrder");
-    const confirmation = document.getElementById("confirmation");
-    const messageConfirmation = document.createElement("p");
-    const confirmationPrice = document.createElement("p");
-
+function addConfirmationOrder() {
+    const confirmationId = localStorage.getItem("orderConfirmationId");
+    const messageConfirmation = document.getElementById("orderId");
     messageConfirmation.innerHTML = "Merci pour votre commande n° " + confirmationId;
-    confirmationPrice.innerHTML = "Prix total :" + totalPrice + "$";
-
-    // confirmation.appendChild(messageConfirmation);
-    // confirmation.appendChild(confirmationPrice);
+    const totalPrice = localStorage.getItem("totalOrder");
+    const confirmationPrice = document.getElementById("total-price");
+    confirmationPrice.innerHTML = "Prix total : " + totalPrice + " $";
 }
 
+
+// Vider le panier, le prix total et l'Id de commande
+function resetOrder() {
+    buttonHome = document.getElementById('btn-confirmation');
+    buttonHome.addEventListener('click', function () {
+        localStorage.removeItem("orderConfirmationId");
+        localStorage.removeItem('basketContent');
+        localStorage.removeItem('totalOrder');
+    })
+}
+
+
+////////////////////////////////////EXECUTION DES FONCTIONS/////////////////////////////////////////////////
+addConfirmationOrder()
+resetOrder()
