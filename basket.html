@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./frontend/scss/style.css">
-    <meta type="description" content="Le meilleur site pour choisir sa caméra vintage !">
+    <meta name="description" content="Le meilleur site pour choisir sa caméra vintage !">
     <title>Orinocamera vintage - Panier</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap&&family=Open+Sans:wght@300&display=swap"
@@ -61,11 +61,10 @@
                 </div>
             </div>
         </div>
-        <!--formulaire de commande-->
 
-        <!-- -->
-        <div id="Form">
-            <div class="needs-validation" novalidate>
+        <!--formulaire de commande-->
+        <form id="Form">
+            <div class="needs-validation">
                 <div class="form-row">
                     <div class="col-md-6 mb-1">
                         <label for="firstName" class="pt-3">Prénom</label>
@@ -96,40 +95,21 @@
                         <label for="email" class="pt-3">Email</label>
                         <input type="email" class="form-control " id="email" placeholder="jeanne.dupont@mail.com"
                             required>
-
+                        <span class="error" aria-live="polite"></span>
                     </div>
                 </div>
-                <!-- <div class="form-row">
-                    <div class="form-check my-3">
-                        <input class="form-check-input is-invalid " type="checkbox" value="" id="invalidCheck3"
-                            aria-describedby="invalidCheck3Feedback" required>
-                        <label class="form-check-label" for="invalidCheck3">
-                            J'accepte les termes et conditions.
-                        </label>
-                        <div id="invalidCheck3Feedback" class="invalid-feedback">
-                            Vous devez accepter afin de finaliser la commande.
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-
-            <!-- <a href = "confirm.html" alt = "Lien vers la page de confirmation de la commande"> type="submit"-->
-            <!-- <button class="btn btn-warning my-3"  id="btn-validation" >Valider la commande</button> -->
-            <!-- </a> -->
-
-
-    </div>
+             </div>
+        </form>
         <div class="text-right">
-            <button class="btn btn-warning my-3" id="btn-validation"> Valider la commande</button>
+            <button class="btn btn-warning my-3" id="btn-validation"> Valider la  commande</button>
         </div>
-
     </main>
 
     <footer class=" footer bg-img">
         <div class="col d-flex justify-content-center p-0">
             <ul class="list-inline text-center my-3 ">
-                <li class="list-inline-item"><a href="#mentions" alt="mentions légales">Mentions légales</a></li>
-                <li class="list-inline-item"><a href="mailto:contact@orinoco.fr" alt="Email de contact">Contact</a></li>
+                <li class="list-inline-item"><a href="#mentions" >Mentions légales</a></li>
+                <li class="list-inline-item"><a href="mailto:contact@orinoco.fr" >Contact</a></li>
             </ul>
         </div>
     </footer>

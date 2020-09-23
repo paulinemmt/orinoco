@@ -1,5 +1,5 @@
 
-//////////////////////////////CREATION DES VARIABLES NECESSAIRES///////////////////////////////////////////
+//////////////////////////////DECLARATION DES VARIABLES NECESSAIRES///////////////////////////////////////////
 
 ///////Création d'un tableau de stockage des prix
 const arrayPrice = [];
@@ -113,7 +113,14 @@ function deleteBasket() {
 }
 
 
-/////////////////////////////////////VALIDATION ET ENVOIE DU FORMULAIRE ET DE L'OBJET CONTACT ET TABLEAU PRODUCT A L'API/////////////
+/////////////////////////////////////VALIDATION DU FORMULAIRE ET ENVOIE DU FORMULAIRE ET DE CONTACT ET PRODUCT A L'API/////////////
+
+//Récupération de l'Id de commande renvoyé par l'API et stockage dans le localStorage
+function getOrderConfirmationId(responseId) {
+    let orderId = responseId.orderId;
+    console.log(orderId);
+    localStorage.setItem("orderConfirmationId", orderId);
+}
 
 //Récupération des données du formulaire dans l'objet Contact
 function getForm() {
@@ -125,14 +132,7 @@ function getForm() {
     contact = new ContactData(firstname, lastname, address, city, email);
 }
 
-//Récupération de l'Id de commande renvoyé par l'API et stockage dans le localStorage
-function getOrderConfirmationId (responseId){ 
-            let orderId = responseId.orderId;
-            console.log(orderId);
-            localStorage.setItem("orderConfirmationId", orderId);
-}
-
-//Requête Post pour envoyer l'objet Contact et le tableau products à l'API
+//Requête POST pour envoyer l'objet Contact et le tableau products à l'API
 async function postForm(dataToSend) {
     try {
         let response = await fetch("http://localhost:3000/api/cameras/order", {
@@ -144,7 +144,7 @@ async function postForm(dataToSend) {
         });
         if (response.ok) {
             let responseId = await response.json();
-            getOrderConfirmationId (responseId);
+            getOrderConfirmationId(responseId);
             window.location.href = "confirm.html";
         } else {
             console.error('Retour du serveur : ', response.status)
@@ -154,7 +154,7 @@ async function postForm(dataToSend) {
     }
 }
 
-// Validation de la commande et envoie de l'objet contact et du tableau product à l'API
+//Validation de la commande et envoie de l'objet contact et du tableau product à l'API
 function confirmationOrder() {
     let buttonValidation = document.getElementById('btn-validation');
     console.log(buttonValidation);
@@ -166,12 +166,32 @@ function confirmationOrder() {
     })
 }
 
-
+//Validation des données du formulaire
+function validateForm() {
+    let buttonValidation = document.getElementById('btn-validation');
+    buttonValidation.addEventListener('click', function () {
+        let firstname = document.getElementById('firstName').value;
+        let lastname = document.getElementById('lastName').value;
+        let address = document.getElementById('address').value;
+        let city = document.getElementById('city').value;
+        let email = document.getElementById('email').value;
+        if (firstname, lastname, address, city, email != "" && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
+            confirmationOrder();
+            return true;
+        } else {
+            // sinon on affiche un message
+            alert("Saisissez tous les champs et entrez un email valide");
+            // et on indique de ne pas envoyer le formulaire
+            return false;
+        }
+    })
+}
 
 ///////////////////////////EXECUTION DES FONCTIONS///////////////////////////////////////
 getBasket();
 deleteBasket();
-confirmationOrder();
+validateForm();
+
 
 
 
