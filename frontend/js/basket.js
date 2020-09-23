@@ -145,6 +145,7 @@ async function postForm(dataToSend) {
         if (response.ok) {
             let responseId = await response.json();
             getOrderConfirmationId (responseId);
+            window.location.href = "confirm.html";
         } else {
             console.error('Retour du serveur : ', response.status)
         }
@@ -160,15 +161,16 @@ function confirmationOrder() {
     buttonValidation.addEventListener('click', function () {
         getForm();
         dataToSend = JSON.stringify({ contact, products });
-        console.log(dataToSend)
+        console.log(dataToSend);
         postForm(dataToSend);
     })
 }
 
 
+
 ///////////////////////////EXECUTION DES FONCTIONS///////////////////////////////////////
 getBasket();
-deleteBasket()
+deleteBasket();
 confirmationOrder();
 
 

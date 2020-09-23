@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./frontend/scss/style.css">
-    <meta type="description">
-    <title>Orinoco - Orinocamera vintage</title>
+    <meta type="description" content="Le meilleur site pour choisir sa caméra vintage !">
+    <title>Orinocamera vintage - Panier</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap&&family=Open+Sans:wght@300&display=swap"
         rel="stylesheet">
@@ -43,7 +43,7 @@
     </header>
 
     <main class="container" id="main-basket">
-        <div class = "border border-warning rounded shadow-lg my-5 p-4 text-center">
+        <div class="border border-warning rounded shadow-lg my-5 p-4 text-center">
             <div class="d-flex flex-row justify-content-between px-1 my-2 text-warning">
                 <p class="my-1">Nom</p>
                 <p class="my-1">Lentille</p>
@@ -52,30 +52,30 @@
             <div id='basket-content'>
                 <!--Complèter chaque élément ajouté au panier avec le JS-->
             </div>
-        <div class= "d-flex flex-column align-items-end">
-            <div id="total-price" class="my-3">
-                <!-- Prix total de la commande -->
-            </div>
-            <div id="button-clear-basket">
-                <!-- Bouton : vider le panier -->
+            <div class="d-flex flex-column align-items-end">
+                <div id="total-price" class="my-3">
+                    <!-- Prix total de la commande -->
+                </div>
+                <div id="button-clear-basket">
+                    <!-- Bouton : vider le panier -->
+                </div>
             </div>
         </div>
-    </div>
         <!--formulaire de commande-->
 
         <!-- -->
-        <form id="Form" >
+        <div id="Form">
             <div class="needs-validation" novalidate>
                 <div class="form-row">
                     <div class="col-md-6 mb-1">
                         <label for="firstName" class="pt-3">Prénom</label>
                         <input type="text" class="form-control " id="firstName" placeholder="Jeanne" required>
-                        
+
                     </div>
                     <div class="col-md-6 mb-1">
                         <label for="lastName" class="pt-3">Nom</label>
                         <input type="text" class="form-control " id="lastName" placeholder="Dupont" required>
-                        
+
                     </div>
                 </div>
                 <div class="form-row">
@@ -83,21 +83,20 @@
                         <label for="address" class="pt-3">Adresse</label>
                         <input type="text" class="form-control " id="address" placeholder="42 rue des Peupliers"
                             required>
-                        
+
                     </div>
                     <div class="col-md-3 mb-1">
                         <label for="city" class="pt-3">Ville</label>
-                        <input type="text" class="form-control " id="city" placeholder="BRIVE-LA-GAILLARDE"
-                            required>
-                        
+                        <input type="text" class="form-control " id="city" placeholder="BRIVE-LA-GAILLARDE" required>
+
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col mb-1">
                         <label for="email" class="pt-3">Email</label>
-                        <input type="email" class="form-control " id="email"
-                            placeholder="jeanne.dupont@mail.com" required>
-                        
+                        <input type="email" class="form-control " id="email" placeholder="jeanne.dupont@mail.com"
+                            required>
+
                     </div>
                 </div>
                 <!-- <div class="form-row">
@@ -113,21 +112,17 @@
                     </div>
                 </div> -->
             </div>
-            
-                <!-- <a href = "confirm.html" alt = "Lien vers la page de confirmation de la commande"> type="submit"-->
-                <!-- <button class="btn btn-warning my-3"  id="btn-validation" >Valider la commande</button> -->
+
+            <!-- <a href = "confirm.html" alt = "Lien vers la page de confirmation de la commande"> type="submit"-->
+            <!-- <button class="btn btn-warning my-3"  id="btn-validation" >Valider la commande</button> -->
             <!-- </a> -->
-           
-            
-        </form>
-        <div class="text-right">
-         
-        <button class="btn btn-warning my-3"  id="btn-validation" > Valider la commande</button> 
-        <a href = "confirm.html" alt = "Lien vers la page de confirmation de la commande"> 
-            <button class="btn btn-warning my-3" >Voir la confirmation</button>
-        </a>
+
+
     </div>
-    
+        <div class="text-right">
+            <button class="btn btn-warning my-3" id="btn-validation"> Valider la commande</button>
+        </div>
+
     </main>
 
     <footer class=" footer bg-img">

@@ -81,7 +81,7 @@ function createButtonLinkProduct(linkProduct) {
     buttonBuy.textContent = "Voir";
 }
 
-//Appel de l'API pour récupérer les données de chaque articles disponibles
+//Appel de l'API pour récupérer les données de chaques articles disponibles
 async function getCameras() {
     try {
         let response = await fetch("http://localhost:3000/api/cameras");

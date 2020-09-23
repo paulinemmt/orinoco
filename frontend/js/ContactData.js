@@ -6,5 +6,6 @@
         this.city = city;
         this.email = email;
     }
+    //fonction
 }
 
