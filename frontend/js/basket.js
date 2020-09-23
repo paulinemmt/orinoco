@@ -1,3 +1,4 @@
+///// ///// ///// ///// PAGE PANIER ////// ///// ///// /////
 
 //////////////////////////////DECLARATION DES VARIABLES NECESSAIRES///////////////////////////////////////////
 
@@ -5,13 +6,22 @@
 const arrayPrice = [];
 //////Création du tableau qui va être envoyé au serveur avec les id des caméras
 let products = [];
-//////Création de l'objet contact qui va être envoyé au serveur avec les données du formulaire
+//////Création de l'objet contact contenant les données du formulaire qui va être envoyé au serveur
 let contact = {};
-
+//////Création d'une classe pour structurer l'objet contact
+class ContactData {
+    constructor(name, surname, adress, city, email) {
+        this.firstName = name;
+        this.lastName = surname;
+        this.address = adress;
+        this.city = city;
+        this.email = email;
+    }
+}
 
 /////////////////////////////MISE EN PLACE DU PANIER///////////////////////////////////////////////////////
 
-//Création de la trame HTML du panier avec récupération des données des articles choisis
+//Création de la trame HTML du panier à partir des données des articles choisis
 function createBasket(itemCamera, basketContent) {
     let mainBasket = document.getElementById('basket-content');
     // console.log(mainBasket)
@@ -56,7 +66,7 @@ function totalPriceOrder(arrayPrice) {
         total = total + arrayPrice[i];
         totalPrice.textContent = "Prix total : " + total + "$";
         //Stockage du prix dans le localStorage pour la page de confirmation
-        localStorage.setItem("totalOrder", JSON.stringify(total))
+        localStorage.setItem("totalOrder", JSON.stringify(total));
     }
 }
 
@@ -79,7 +89,7 @@ async function getBasket() {
             totalPriceOrder(arrayPrice);
 
         } else {
-            console.error('Retour du serveur : ', response.status)
+            console.error('Retour du serveur : ', response.status);
         }
     }
     catch (e) {
@@ -115,14 +125,14 @@ function deleteBasket() {
 
 /////////////////////////////////////VALIDATION DU FORMULAIRE ET ENVOIE DU FORMULAIRE ET DE CONTACT ET PRODUCT A L'API/////////////
 
-//Récupération de l'Id de commande renvoyé par l'API et stockage dans le localStorage
+//Récupération de l'id de commande renvoyée par l'API et stockage dans le localStorage
 function getOrderConfirmationId(responseId) {
     let orderId = responseId.orderId;
     console.log(orderId);
     localStorage.setItem("orderConfirmationId", orderId);
 }
 
-//Récupération des données du formulaire dans l'objet Contact
+//Récupération des données du formulaire dans l'objet contact
 function getForm() {
     let firstname = document.getElementById('firstName').value;
     let lastname = document.getElementById('lastName').value;
@@ -147,7 +157,7 @@ async function postForm(dataToSend) {
             getOrderConfirmationId(responseId);
             window.location.href = "confirm.html";
         } else {
-            console.error('Retour du serveur : ', response.status)
+            console.error('Retour du serveur : ', response.status);
         }
     } catch (e) {
         console.log(e);
@@ -156,20 +166,16 @@ async function postForm(dataToSend) {
 
 //Validation de la commande et envoie de l'objet contact et du tableau product à l'API
 function confirmationOrder() {
-    let buttonValidation = document.getElementById('btn-validation');
-    console.log(buttonValidation);
-    buttonValidation.addEventListener('click', function () {
         getForm();
         dataToSend = JSON.stringify({ contact, products });
         console.log(dataToSend);
         postForm(dataToSend);
-    })
 }
 
 //Validation des données du formulaire
 function validateForm() {
     let buttonValidation = document.getElementById('btn-validation');
-    buttonValidation.addEventListener('click', function () {
+     buttonValidation.addEventListener('click', function () {
         let firstname = document.getElementById('firstName').value;
         let lastname = document.getElementById('lastName').value;
         let address = document.getElementById('address').value;
@@ -179,15 +185,13 @@ function validateForm() {
             confirmationOrder();
             return true;
         } else {
-            // sinon on affiche un message
             alert("Saisissez tous les champs et entrez un email valide");
-            // et on indique de ne pas envoyer le formulaire
             return false;
         }
-    })
+})
 }
 
-///////////////////////////EXECUTION DES FONCTIONS///////////////////////////////////////
+///////////////////////////APPEL DES FONCTIONS///////////////////////////////////////
 getBasket();
 deleteBasket();
 validateForm();

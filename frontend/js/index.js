@@ -1,3 +1,5 @@
+///// ///// ///// ///// PAGE ACCUEIL ////// ///// ///// /////
+
 ////////////////CREATION DES CARDS A PARTIR DES DONNEES DE L'API//////////////////////////////////////////////////////////
 
 //Création des cards
@@ -14,7 +16,7 @@ function createCardCameras(cameras) {
         divParent.classList.add("card", "col", "m-3", "pt-3");
 
 
-        // Création des élements images et div avec la classe card body, enfants de la divParent 
+        // Création des élements images et div avec la classe card body, enfants de divParent 
         let imageCamera = document.createElement("img");
         divParent.appendChild(imageCamera);
         imageCamera.classList.add("card-image-top", "photo", "img-fluid");
@@ -25,7 +27,7 @@ function createCardCameras(cameras) {
         divCardBody.classList.add("card-body", "text-center", "px-0", "d-flex", "flex-column", "justify-content-between");
 
 
-        // Création des éléments enfants de la div CardBody
+        // Création des éléments enfants de divCardBody
         let titleCamera = document.createElement("h3");
         divCardBody.appendChild(titleCamera);
         titleCamera.classList.add("card-title", "title");
@@ -58,16 +60,16 @@ function createCardCameras(cameras) {
 //Récupération de l'id pour rediriger vers la page product correspondante
 function getUrlProduct(cameras,i,linkProduct) {
    
-    // URL du lien
+    // récupération de l'url
     let splitUrl = window.location.pathname.split("/");
     let lastItem = splitUrl.pop();
-    console.log(window.location.pathname.replace(lastItem, 'product.html'))
+    // console.log(window.location.pathname.replace(lastItem, 'product.html'))
     let url = window.location.origin + window.location.pathname.replace(lastItem, 'product.html');
 
-    // // Création d'un objet URL
+    // // Création d'un objet url
     let urlObj = new URL(url);
     let idCameras = cameras[i]._id;
-    // Ajout du query string ID
+    // Ajout du query string id
     urlObj.searchParams.append("id", idCameras);
     linkProduct.href = urlObj;
 }
@@ -97,7 +99,7 @@ async function getCameras() {
 }
 
 
-///////////////////////////////////////EXECUTION DE LA FONCTION///////////////////////////////////////////////
+///////////////////////////////////////APPEL DE LA FONCTION///////////////////////////////////////////////
 getCameras()
 
 

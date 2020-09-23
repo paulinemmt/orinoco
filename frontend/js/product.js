@@ -1,4 +1,14 @@
-//////////////////////////////CREATION DES CARDS INDIVIDUEL DE PRODUIT //////////////////////////////////
+///// ///// ///// ///// PAGE PRODUIT ////// ///// ///// /////
+
+//Création d'une classe pour structurer le tableau product
+class MyProduct {
+    constructor(idCamera, selectedLenses) {
+        this.idCamera = idCamera;
+        this.selectedLenses = selectedLenses;
+    }
+}
+
+//////////////////////////////CREATION DES CARDS INDIVIDUELLES DE PRODUIT //////////////////////////////////
 
 //Récupération de l'Id dans l'url
 function getIdUrlAndCard(cameras) {
@@ -6,7 +16,7 @@ function getIdUrlAndCard(cameras) {
     console.log(urlSearch);
     let idCamera = urlSearch.get('id');
     console.log(idCamera);
-    getCameraItem(cameras, idCamera)
+    getCameraItem(cameras, idCamera);
 }
 
 //Récupération de la caméra correspondant à l'Id
@@ -53,7 +63,7 @@ function createCardCamera(choosenCamera, idCamera) {
     // Création d'une div englobant prix et bouton
     let divLinkPrice = document.createElement("div");
     divCardBody.appendChild(divLinkPrice);
-    divLinkPrice.classList.add("d-flex", "flex-row", "justify-content-between");
+    divLinkPrice.classList.add("d-flex", "flex-md-row", "flex-column", "justify-content-between");
 
     // Création du prix
     let priceCamera = document.createElement("p");
@@ -100,7 +110,7 @@ function getLensCamera(buttonBuy, idCamera) {
     buttonBuy.addEventListener('click', function () {
         let basketContent = JSON.parse(localStorage.getItem("basketContent"));
         let selectedLenses = document.getElementById('list').value;
-        console.log(selectedLenses)
+        // console.log(selectedLenses);
         if (basketContent === null) {
             basketContent = [];
         }
@@ -129,5 +139,5 @@ async function getCameras() {
 }
 
 
-/////////////////////////////EXECUTION DE LA FONCTION/////////////////////////////////
+/////////////////////////////APPEL DE LA FONCTION/////////////////////////////////
 getCameras();

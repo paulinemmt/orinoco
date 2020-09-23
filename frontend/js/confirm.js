@@ -1,3 +1,5 @@
+///// ///// ///// ///// PAGE CONFIRMATION ////// ///// ///// /////
+
 // Confirmation de la commande
 function addConfirmationOrder() {
     const confirmationId = localStorage.getItem("orderConfirmationId");
@@ -9,7 +11,7 @@ function addConfirmationOrder() {
 }
 
 
-// Vider le panier, le prix total et l'Id de commande
+// Vider le panier, le prix total et l'id de commande
 function resetOrder() {
     buttonHome = document.getElementById('btn-confirmation');
     buttonHome.addEventListener('click', function () {
@@ -21,6 +23,6 @@ function resetOrder() {
 }
 
 
-////////////////////////////////////EXECUTION DES FONCTIONS/////////////////////////////////////////////////
+////////////////////////////////////APPEL DES FONCTIONS/////////////////////////////////////////////////
 addConfirmationOrder()
 resetOrder()
