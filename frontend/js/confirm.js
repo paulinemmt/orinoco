@@ -18,7 +18,7 @@ function resetOrder() {
         localStorage.removeItem("orderConfirmationId");
         localStorage.removeItem('basketContent');
         localStorage.removeItem('totalOrder');
-        window.location.href = "index.html";
+        window.location.href = "../../index.html";
     })
 }
 

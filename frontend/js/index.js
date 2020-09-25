@@ -64,7 +64,7 @@ function getUrlProduct(cameras,i,linkProduct) {
     let splitUrl = window.location.pathname.split("/");
     let lastItem = splitUrl.pop();
     // console.log(window.location.pathname.replace(lastItem, 'product.html'))
-    let url = window.location.origin + window.location.pathname.replace(lastItem, 'product.html');
+    let url = window.location.origin + window.location.pathname.replace(lastItem, './frontend/page/product.html');
 
     // // Création d'un objet url
     let urlObj = new URL(url);
